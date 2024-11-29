@@ -184,6 +184,27 @@ dealing with gradle.
    - Auto Reconnect
      - You can set the delay to as few or many seconds as you like. Immediate rejoins can be sus to mods/admins paying attention. I commonly went with 30s, but honestly a dynamic value could go a long way here.
 
+### Starting the Scan
+When starting from the very first chunk of the project, go to the center of the map. When you're ready, enable the `Archiver Module`
+module. It will begin flying your player in the direction you're looking, turn 90 degrees, go a bit more, rinse and repeat.
+
+I recommend you enable the `Helper Module`. If you get disconnected / kicked, this module is what automatically resumes
+the flying (what I refer to as scanning) process where you left off. If this module isn't enabled and you reconnect,
+you'll have to manually toggle the `Archiver Module` off and on again.
+
+Let's say you get banned, the server goes down, your internet goes out, etc. The scanning process was interrupted. There
+are commands on the addon that allow us to pick up where we left off by manually flying a segment. Toggle off the `Archiver Module`
+and `Helper Module`.
+
+Fly to the corner closest to where you left off. Face the direction you want us to fly forward in for the next leg of the
+scan. Execute the command `.archiver reset`. This command tells the addon to start from here. Now, fly your player **manually**
+straight all the way to where it will need to turn next. Stop where the player would need to turn to begin the next segment.
+Remain facing the direction you were heading when flying manually. Execute the command `.archiver resume`.
+
+Finally, enable the `Archiver Module`. It will take over flight responsibilities and handle things from there. Don't
+forget to also enable the `Helper Module` in case you get kicked or else you'll have to do this again.
+
+
 ### Flying Over the Radar
 
 When I first began downloading I would just join the server whenever I had time, like after work. I'd set the mod to run,
