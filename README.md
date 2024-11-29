@@ -183,6 +183,9 @@ dealing with gradle.
        - Off Time: `10`
    - Auto Reconnect
      - You can set the delay to as few or many seconds as you like. Immediate rejoins can be sus to mods/admins paying attention. I commonly went with 30s, but honestly a dynamic value could go a long way here.
+9. Start the World Downloader executable. This will open a GUI where you can configure which server it should proxy to. Click `Start`.
+10. In your Minecraft client, add a new multiplayer server with the IP `localhost`.
+11. When you connect to the server you added, you'll connect to the destination server and the downloader will begin downloading chunks.
 
 ### Starting the Scan
 When starting from the very first chunk of the project, go to the center of the map. When you're ready, enable the `Archiver Module`
