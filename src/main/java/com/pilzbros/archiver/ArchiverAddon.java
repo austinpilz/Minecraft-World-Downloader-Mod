@@ -1,10 +1,11 @@
-package com.example.addon;
+package com.pilzbros.archiver;
 
-import com.example.addon.commands.CommandExample;
-import com.example.addon.hud.HudExample;
-import com.example.addon.modules.ArchiveModule;
-import com.example.addon.modules.BoatArchiveModule;
-import com.example.addon.modules.HelperModule;
+import com.pilzbros.archiver.commands.ArchiveCommand;
+import com.pilzbros.archiver.hud.HudExample;
+import com.pilzbros.archiver.modules.ArchiveModule;
+import com.pilzbros.archiver.modules.BoatArchiveModule;
+import com.pilzbros.archiver.modules.ConflictAvoidanceModule;
+import com.pilzbros.archiver.modules.HelperModule;
 import com.mojang.logging.LogUtils;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
@@ -15,10 +16,10 @@ import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
 
-public class AddonTemplate extends MeteorAddon {
+public class ArchiverAddon extends MeteorAddon {
     public static final Logger LOG = LogUtils.getLogger();
-    public static final Category CATEGORY = new Category("Example");
-    public static final HudGroup HUD_GROUP = new HudGroup("Example");
+    public static final Category CATEGORY = new Category("Archiver");
+    public static final HudGroup HUD_GROUP = new HudGroup("Archiver");
 
     @Override
     public void onInitialize() {
@@ -28,9 +29,10 @@ public class AddonTemplate extends MeteorAddon {
         Modules.get().add(archiveModule);
         Modules.get().add(new HelperModule(archiveModule));
         Modules.get().add(new BoatArchiveModule());
+        Modules.get().add(new ConflictAvoidanceModule());
 
         // Commands
-        Commands.add(new CommandExample(archiveModule));
+        Commands.add(new ArchiveCommand(archiveModule));
 
         // HUD
         Hud.get().register(HudExample.INFO);
@@ -43,11 +45,11 @@ public class AddonTemplate extends MeteorAddon {
 
     @Override
     public String getPackage() {
-        return "com.example.addon";
+        return "com.pilzbros.archiver";
     }
 
     @Override
     public GithubRepo getRepo() {
-        return new GithubRepo("MeteorDevelopment", "meteor-addon-template");
+        return new GithubRepo("austinpilz", "Minecraft-World-Downloader-Mod");
     }
 }

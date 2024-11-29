@@ -1,6 +1,6 @@
-package com.example.addon.modules;
+package com.pilzbros.archiver.modules;
 
-import com.example.addon.AddonTemplate;
+import com.pilzbros.archiver.ArchiverAddon;
 import meteordevelopment.meteorclient.events.game.ReceiveMessageEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.*;
@@ -10,7 +10,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.DirectionTransformation;
 
 import java.util.Set;
 import java.util.logging.Logger;
@@ -107,13 +106,10 @@ public class ArchiveModule extends Module {
     public ClientPlayerEntity lastPlayer;
 
     public ArchiveModule() {
-        super(AddonTemplate.CATEGORY, "archiver-module", "Automatic flying to archive the entire world.");
+        super(ArchiverAddon.CATEGORY, "archiver-module", "Automatic flying to archive the entire world.");
     }
 
     private void onEnableArchiving(boolean setting) {
-        if (setting) {
-
-        }
     }
 
     @EventHandler

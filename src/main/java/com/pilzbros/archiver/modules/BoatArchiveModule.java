@@ -1,6 +1,6 @@
-package com.example.addon.modules;
+package com.pilzbros.archiver.modules;
 
-import com.example.addon.AddonTemplate;
+import com.pilzbros.archiver.ArchiverAddon;
 import meteordevelopment.meteorclient.events.entity.BoatMoveEvent;
 import meteordevelopment.meteorclient.events.game.ReceiveMessageEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
@@ -118,7 +118,7 @@ public class BoatArchiveModule extends Module {
     private int speedSlowDownTicks = slowdownTicksSetting.get();
 
     public BoatArchiveModule() {
-        super(AddonTemplate.CATEGORY, "boat-archiver-module", "Automatic flying (via BOAT) to archive the entire world.");
+        super(ArchiverAddon.CATEGORY, "boat-archiver-module", "Automatic flying (via BOAT) to archive the entire world.");
     }
 
     private void doNothing() {

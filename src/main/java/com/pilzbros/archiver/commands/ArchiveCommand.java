@@ -1,26 +1,23 @@
-package com.example.addon.commands;
+package com.pilzbros.archiver.commands;
 
-import com.example.addon.modules.ArchiveModule;
-import com.mojang.brigadier.arguments.StringArgumentType;
+import com.pilzbros.archiver.modules.ArchiveModule;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import meteordevelopment.meteorclient.commands.Command;
-import meteordevelopment.meteorclient.mixin.MinecraftClientAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.command.CommandSource;
 
-import static meteordevelopment.meteorclient.MeteorClient.mc;
-
 /**
- * The Meteor Client command API uses the <a href="https://github.com/Mojang/brigadier">same command system as Minecraft does</a>.
+ * This the command handler for the archive addon. It will allow you to manually configure elements of the ongoing archive
+ * session without needing to pause or restart the current leg.
  */
-public class CommandExample extends Command {
+public class ArchiveCommand extends Command {
 
     private final ArchiveModule archiveModule;
 
     /**
      * The {@code name} parameter should be in kebab-case.
      */
-    public CommandExample(ArchiveModule archiveModule) {
+    public ArchiveCommand(ArchiveModule archiveModule) {
         super("archive", "Archiver commands for world downloading.");
 
         this.archiveModule = archiveModule;
@@ -45,20 +42,5 @@ public class CommandExample extends Command {
             info("Snapped player yaw to the true direction they're heading.");
             return SINGLE_SUCCESS;
         }));
-
-        builder.then(literal("token").executes(context -> {
-            info("Your Access Token: " + MinecraftClient.getInstance().getSession().getAccessToken());
-            info("Session: " + MinecraftClient.getInstance().getSession().getSessionId());
-
-            return SINGLE_SUCCESS;
-        }));
-
-
-
-//        builder.then(literal("name").then(argument("nameArgument", StringArgumentType.word()).executes(context -> {
-//            String argument = StringArgumentType.getString(context, "nameArgument");
-//            info("hi, " + argument);
-//            return SINGLE_SUCCESS;
-//        })));
     }
 }
