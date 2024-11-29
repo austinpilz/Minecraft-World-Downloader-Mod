@@ -1,5 +1,9 @@
+> [!TIP]
+> The archival project of MinecraftOnline.com's Freedonia map is **complete!** The [results](#-the-results-) section of this 
+> write up contains information about the project and where to find the world download. 
+
 # Minecraft: Digital Archiving
-TL;DR - This is a Meteor Client addon that I built to assist me in archiving the entire world of the oldest Minecraft server.
+TL;DR - This is a [Meteor Client](https://meteorclient.com/) addon that I built to assist me in archiving the entire world of the oldest Minecraft server.
 I downloaded the entire Minecraft world by using this mod addon to automatically navigate me across the world. I succeeded!
 
 This repository is the code for the addon which works and can be used. I've included a long write-up here on the entire
@@ -16,17 +20,18 @@ staff, eras, organizations, mishaps, etc. It was a pleasure to get to read throu
 on end to make it through everything.
 
 ## Why This Server?
-First and foremost, I'm a digital historian and have a passion for archiving precious digital memories that could otherwise
+Professionally I'm a software engineer. I'm also a hobby digital historian and have a passion for archiving precious digital memories that could otherwise
 be lost to time. Prior to this little endeavor I [digitized](https://www.post-gazette.com/life/goodness/2024/10/17/chartiers-valley-scott-bridgeville-high-schools-yearbooks-project/stories/202410170008) 
-hundreds of years of yearbooks and made them available for free [online](https://chartiersvalley.com).
+hundreds of years of yearbooks and made them available for free [online](https://chartiersvalley.com). It's considered one of the largest complete
+collections of its kind in the United States.
 
-I played Minecraft when I was young, and it's what I credit my brother and I's strong relationship for. We'd spend hours 
+I played Minecraft when I was young, and it's what I credit for my brother and I's strong relationship. We'd spend hours 
 a day for years building on our [own server](https://pilzbros.com). 10+ years later and it's still something we do from time to time.
 
 I came across [SalC1's Video](https://www.youtube.com/watch?v=HrUX1XJkoU4) about MinecraftOnline.com, how it was the oldest
 Minecraft server, and how the apparent ineffective administration have caused many issues in its operation. In an act of
 selflessness and digital historianism, SalC1 donated thousands of dollars for the server to be moved to more modern hardware.
-Unfortunately, the administration team wasted the entire funds on a test server that was never used. A huge chance to
+Unfortunately, the administration team wasted the entire fund allocation on a test server that was never used. A huge chance to
 revitalize a milestone for the community, squandered. MinecraftOnline.com documents two "invasions" as a result of SalC1's
 videos, one in [2017](https://minecraftonline.com/wiki/SalC1_Invasion) and [another](https://minecraftonline.com/wiki/Double_Trouble_Invasion) 
 in 2023.
@@ -53,8 +58,8 @@ I was about to create the unsanctioned off-site backup.
 ## Map Structure
 ![MinecraftOnline.com Map Structure](docs/map-structure.png)
 
-The middle most tan colored ring, labeled `Freedonia (March 2011)` was the original world border since the server began
-in Minecraft Beta 1.3 until it was expanded in 2013. The outermost red ring represents the current (2024) world border.
+The middle most tan colored ring, labeled `Freedonia (March 2011)`, was the original world border when the server began
+in Minecraft Beta 1.3 until it was expanded in 2013. The outermost (red) ring represents the current (2024) world border.
 
 For this project, I was only concerned with capturing the original most map from 2011. Anything extra was simply a bonus.
 Speaking purely from the density of builds, it appears the majority of growth on the server happened between 2011 and 2013,
@@ -66,11 +71,13 @@ The viewer came in extremely handy when setting goals for the project as it allo
 needed to capture. I frequently referred to it while my mod and world downloader were carving large chunks out, I wanted
 to make sure I was only targeting `Freedonia` in the beginning.
 
-## Server Challenges
+Sadly, the viewer provided by the server is very old and is limited in the fidelity it displays. You can't get the full
+picture and awe just from exploring via the map viewer.
 
+## Server Challenges
 - Of the three rules on the server, using a hacked client for flight was prohibited. This immediately tells you that you'll be doing some deep configuration to avoid detection, kicks, and bans.
 - The server _still_ runs on `Minecraft 1.12.2`. That's pretty old. You're unlikely to find active mod/tooling support for it. Coincidentally, my [Friday the 13th Minecraft](https://f13mc.com) server is still on 1.12.2. I just couldn't be arsed to rewrite everything when 1.13 broke like, every major API.
-- The physical server is old or sure feels like it. They don't publish the current TPS counts, but Sal1C videos routinely documented it below 10 TPS, making basic functions like riding Minecarts impractical.
+- The physical server is old or sure feels like it. They don't publish the current TPS counts, but Sal1C videos routinely documented it below 10 TPS, making basic functions like riding Minecarts impractical. It's a shame as the server has the most expansive minecart network I've ever witnessed.
 
 These were the main concerns I had going into the project. Further down I publish a full list of learnings and adaptations
 I came across.
@@ -98,17 +105,17 @@ download a single file from the internet. The process outlined here is saving ch
 produce a full world save as long as you explore it all.
 
 This is _rough_ for large maps. Similar efforts have been done on 2b2t. You can read about it on [Reddit](https://old.reddit.com//r/2b2t/comments/t287n9/1170gb_of_2b2t_256000%C2%B2_mapping_project_info/)
-and download the 1.17TB spawn world download via [this torrent](https://cloud.daporkchop.net/minecraft/2b2t/torrents/2b2t_256k%c2%b2_spawn_download.torrent).
+and download the 1.17 TB spawn world download via [this torrent](https://cloud.daporkchop.net/minecraft/2b2t/torrents/2b2t_256k%c2%b2_spawn_download.torrent).
 For this effort, they traveled 128 _THOUSAND_ blocks in each direction. For reference, the MincraftOnline.com overworld
 is only ~20,000 blocks wide in each direction.
 
-The final important quirk of the downloader is what it's actually able to capture. There's a lot in a Minecratf world
-besides blocks. There are entities (armor stands), item frames, signs with text, chests with loot, etc. How the Minecraft
+The final important quirk of the downloader is what it's actually able to capture. There's a lot in a Minecraft world
+besides the blocks. There are entities (armor stands), item frames, signs with text, chests with loot, etc. How the Minecraft
 server stores this data and allows access to it varies.
 
 Looking at the downloader's [feature compatibility](https://github.com/mircokroon/minecraft-world-downloader/wiki/Features)
 chart, the _server_ being on `1.12.2` brings the following challenges:
-- We cannot download map contents. There goes map art.
+- We cannot download handheld map contents. RIP, there goes map art.
 - We cannot download the contents of item frames, armor stands, command blocks, and villager trades.
 - We cannot download ender chest contents. They're implemented specially in Minecraft and require each player to access the chest to obtain the contents.
 - We can get everything else, though, like chest contents!
@@ -193,7 +200,8 @@ module. It will begin flying your player in the direction you're looking, turn 9
 
 I recommend you enable the `Helper Module`. If you get disconnected / kicked, this module is what automatically resumes
 the flying (what I refer to as scanning) process where you left off. If this module isn't enabled and you reconnect,
-you'll have to manually toggle the `Archiver Module` off and on again.
+you'll have to manually toggle the `Archiver Module` off and on again. You **are going to be kicked** as the server detects
+you're flying, it's just a matter of how often.
 
 Let's say you get banned, the server goes down, your internet goes out, etc. The scanning process was interrupted. There
 are commands on the addon that allow us to pick up where we left off by manually flying a segment. Toggle off the `Archiver Module`
@@ -214,7 +222,7 @@ When I first began downloading I would just join the server whenever I had time,
 it would begin sweeping through the tiny beginning squares and slow work its way out.
 
 I made it a few hours before I got banned by a mod. They do this "interrogation" thing where they TP you to `-18165,14236`
-and give you the shake down. Cut your losses, you're already done. They "trail" you.
+and give you the shake down. Cut your losses, you're already done. They "trail" you. 
 
 You're going to need several accounts to pull this project off if the server you're targeting has vigilant staff. I asked
 a few friends if I could use and subsequently get their accounts banned. I looked into alt account leasing services, but
@@ -230,11 +238,13 @@ were right about me evading bans.
 no-go, but the wiki admits mods have limited visibility into the server. 
 
 When you get kicked from the server, you'll get the `Flying is not enabled in this server` error. This kick message does
-_not_ get broadcast all players online. It does, however, get put into the console logs. They have a Discord Bot that 
-yeets this info into a [channel](https://discord.com/channels/288050647998136323/1007803559624061010). This message
-does include the flying message. If you have people paying attention to this Discord channel, you self report that you
-were flying. This is amplified significantly if you're constantly being kicked for flying. It becomes too easy to look
-at the chat history and see you're up to no good.
+_not_ get broadcast all players online. It does, however, get put into the console logs. Remember the wiki states that
+only admins have console access. They have a Discord Bot that yeets this info into a [channel](https://discord.com/channels/288050647998136323/1007803559624061010). This message does 
+sadly include the flying message. If you have people paying attention to this Discord channel, you self-report that you 
+were flying. This is amplified significantly if you're constantly being kicked for flying. It becomes too easy to look 
+at the chat history and see you're up to no good. I spent a few hours watching the channel and very rarely were players
+sending messages in the Discord channel _from_ Discord. That doesn't mean players don't read/monitor it, but it doesn't
+appear to be as highly trafficked as I feared.
 
 Your goal is to fly as far and much as you can while minimizing the number of times you're kicked, all while weighing
 the risk of exposing yourself to the players currently online.
@@ -247,24 +257,40 @@ automatically stops the archiving process and disconnects you if:
 - It hears any admin username mentioned in chat.
 
 I also considered adding a "safety score" mechanic that weighed how risky it would be to archive given the staff online.
-Again, their wiki provided entirely too much information and I would say is short of a privacy violation. Their wiki
-details every single mod and admin. Each have a profile with their name, birthday (???), location (timezome), and more.
+Again, their wiki provided entirely too much information, and I would say it is short of a privacy violation. Their wiki
+details every single mod and admin. Each member has a profile with their name, birthday (???), location (timezone), and more.
 It was entirely too easy to tell the module which admins and mods to avoid and save us a fresh account ban.
 
 ## !! The Results  !!
-There was a lot of preparation and trail and error that went into this whole project. The majority of the work was
+
+There was a lot of preparation and trial and error that went into this whole project. The majority of the work was
 figuring out the patterns of the server and community, optimizing my window for action, getting the mod addon flying
 effectively, and going to bed while it scanned away. I love the smell of fresh bans in the morning.
 
-In total, it took about 8 hours of the addon flying my players around Freedonia to download **every single chunk** of the
-original world.
-
 I went through 5 Minecraft accounts. Each one was banned by the same mod. I suspect they were bored and trailing people
-for funsies. There are _several_ other bots (like myself here) on the server that somehow evade the mods. Hats off to you.
+for funsies. There are _several_ other bots (like myself here) on the server that somehow evade the mods. Hats off to you,
+I got a good kick out of the in-game chat trying to figure out who the bots were.
 
-The world is ~ 7 GB uncompressed. For comparison, the 2b2t world is reportedly over 64 TB.
+While traveling, I did come across some bad chunks. They would consistently crash my client with invalid chunk array
+length issues. I would have to reconnect, spam W to move out of the chunk, and try not to visit it again. Somehow despite
+the issues, they did download to the world downloader. 
 
-You can download the world from the Internet Archive. 
+I think me visiting every chunk reactivated some long forgotten lag machines. There would be some areas of the map you'd
+ visit, and the in-game chat would begin to complain about the server lag. I'm well aware the flying through hundreds of
+thousands of chunks at the speed I was added enough strain on the server loading them from disk. However, they had to reboot
+the server a few times after I visited the last few chunks.
+
+![Render of Downloaded World](docs/render.png)
+
+In total it took about 8 hours of the addon flying my players around Freedonia to download **every single chunk** of the
+original world. Over the course of two evenings I stayed up from 1 to 4 AM ET while the client mod flew around the map.
+The entirety of the Freedonia map boundary was captured. You'll also see a square border outside of it where I started to
+attempt to capture the _entire_ overworld before I realized I didn't have the energy to deal with the mods.
+
+The world is ~ 7 GB uncompressed. For comparison, the 2b2t world is reportedly over 64 TB. 
+
+You can download the world directly [here](https://files.pilzbros.com/freedonia-20241128.7z) or from the 
+[Internet Archive](https://archive.org/details/minecraftoneline-freedonia-world-download).
 
 ### Recommendations for MinecraftOnline.com
 In the off chance that someone from MinecraftOnline.com is reading this and has spent the time getting to this point, I
