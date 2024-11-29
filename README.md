@@ -1,5 +1,5 @@
 > [!TIP]
-> The archival project of MinecraftOnline.com's Freedonia map is **complete!** The [results](#-the-results-) section of this 
+> The archival project of MinecraftOnline.com's Freedonia map is **complete!** The [results](#-the-results--) section of this 
 > write up contains information about the project and where to find the world download. 
 
 # Minecraft: Digital Archiving
