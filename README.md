@@ -2,9 +2,11 @@
 > The archival project of MinecraftOnline.com's Freedonia map is **complete!** The [results](#-the-results--) section of this 
 > write up contains information about the project and where to find the world download. 
 
-# Minecraft: Digital Archiving
+# MinecraftOnline.com Digital Archive Project
 TL;DR - This is a [Meteor Client](https://meteorclient.com/) addon that I built to assist me in archiving the entire world of the oldest Minecraft server.
 I downloaded the entire Minecraft world by using this mod addon to automatically navigate me across the world. I succeeded!
+
+![Render of Downloaded World](docs/render.png)
 
 This repository is the code for the addon which works and can be used. I've included a long write-up here on the entire
 project, why I did it, how I planned for it, adapted to changes in moderation attentiveness, and successfully archived
@@ -279,8 +281,6 @@ I think me visiting every chunk reactivated some long forgotten lag machines. Th
  visit, and the in-game chat would begin to complain about the server lag. I'm well aware the flying through hundreds of
 thousands of chunks at the speed I was added enough strain on the server loading them from disk. However, they had to reboot
 the server a few times after I visited the last few chunks.
-
-![Render of Downloaded World](docs/render.png)
 
 In total it took about 8 hours of the addon flying my players around Freedonia to download **every single chunk** of the
 original world. Over the course of two evenings I stayed up from 1 to 4 AM ET while the client mod flew around the map.
