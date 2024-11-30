@@ -289,8 +289,7 @@ attempt to capture the _entire_ overworld before I realized I didn't have the en
 
 The world is ~ 7 GB uncompressed. For comparison, the 2b2t world is reportedly over 64 TB. 
 
-You can download the world directly [here](https://files.pilzbros.com/freedonia-20241128.7z) or from the 
-[Internet Archive](https://archive.org/details/minecraftoneline-freedonia-world-download).
+You can download the world from the [Internet Archive](https://archive.org/details/minecraftoneline-freedonia-world-download).
 
 ### Recommendations for MinecraftOnline.com
 In the off chance that someone from MinecraftOnline.com is reading this and has spent the time getting to this point, I
