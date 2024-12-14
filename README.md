@@ -1,6 +1,6 @@
 > [!TIP]
 > The archival project of MinecraftOnline.com's Freedonia map is **complete!** The [results](#-the-results--) section of this 
-> write up contains information about the project and where to find the world download. 
+> write up contains information about the project and where to find the [world download](#world-download). 
 
 # MinecraftOnline.com Digital Archive Project
 TL;DR - This is a [Meteor Client](https://meteorclient.com/) addon that I built to assist me in archiving the entire world of the oldest Minecraft server.
@@ -287,9 +287,11 @@ original world. Over the course of two evenings I stayed up from 1 to 4 AM ET wh
 The entirety of the Freedonia map boundary was captured. You'll also see a square border outside of it where I started to
 attempt to capture the _entire_ overworld before I realized I didn't have the energy to deal with the mods.
 
+### World Download
 The world is ~ 7 GB uncompressed. For comparison, the 2b2t world is reportedly over 64 TB. 
 
 You can download the world from the [Internet Archive](https://archive.org/details/minecraftoneline-freedonia-world-download).
+There's a faster mirror [here](https://files.pilzbros.com/freedonia-20241128.7z).
 
 ### Recommendations for MinecraftOnline.com
 In the off chance that someone from MinecraftOnline.com is reading this and has spent the time getting to this point, I
