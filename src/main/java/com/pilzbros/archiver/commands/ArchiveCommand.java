@@ -39,6 +39,14 @@ public class ArchiveCommand extends Command {
 
         builder.then(literal("snap").executes(context -> {
             archiveModule.setPlayerYawTowardsDirection(MinecraftClient.getInstance().player.getMovementDirection());
+            archiveModule.movePlayerDirection(MinecraftClient.getInstance().player.getMovementDirection());
+            info("Snapped player yaw to the true direction they're heading.");
+            return SINGLE_SUCCESS;
+        }));
+
+        builder.then(literal("rotate").executes(context -> {
+            archiveModule.setPlayerYawTowardsDirection(archiveModule.getDirectionToTurnFromCurrentDirection(MinecraftClient.getInstance().player.getMovementDirection()));
+            archiveModule.movePlayerDirection(MinecraftClient.getInstance().player.getMovementDirection());
             info("Snapped player yaw to the true direction they're heading.");
             return SINGLE_SUCCESS;
         }));

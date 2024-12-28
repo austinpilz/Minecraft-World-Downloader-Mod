@@ -124,6 +124,7 @@ public class ArchiveModule extends Module {
     public void resetThings() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         chunkPosAtLastTurn = player.getChunkPos();
+        lastPlayerDictatedDirection = player.getMovementDirection();
     }
 
     /**
@@ -185,7 +186,10 @@ public class ArchiveModule extends Module {
             // Now we can move the player forward! This is what actually drives the hold W mechanic.
             movePlayerDirection(directionForMovement);
 
-            //LOG.info(LOG_PREFIX + "Player is moving in direction " + player.getMovementDirection().name() + " has traveled " + distanceTraveledSinceLastTurn + " chunks since last turn, needs to travel an additional " + (chunkDistance - numChunksTraveledSinceLastTurn) + " more before turning.");
+             if (distanceYetToGo % 100 == 0) {
+                 LOG.info(LOG_PREFIX + "Player is moving in direction " + player.getMovementDirection().name() + " has traveled " + distanceTraveledSinceLastTurn + " chunks since last turn, needs to travel an additional " + distanceYetToGo + " more before turning.");
+             }
+
             return;
         }
 
@@ -205,24 +209,6 @@ public class ArchiveModule extends Module {
         // Record how far we've traveled in total now that we've turned, this calculation gets used for ongoing movement.
         setTraveledChunkDistance(player.getChunkPos().getSquaredDistance(chunkPosAtLastTurn) / 2);
         chunkPosAtLastTurn = player.getChunkPos();
-
-        // TODO  On resume, I bet we can get the direction between us and the last chunk turn, then get the inverse of it to find the direct dir we NEED to go
-
-
-        // TODO If we receive the chat message about the invisible force, we need to do something. ReceiveMessageEvent
-
-        // TODO Need to store enough info to be able to resume if you get disconnected for flying. Store the direction
-        // they were going and the last location they were known to be at. When reconnecting, navigate back to that
-        // exact location, ensure they're in the right direction, and then resume.
-
-
-//        if (minHeight.get() > 0) {
-//            Box box = player.getBoundingBox();
-//            box = box.union(box.offset(0, -minHeight.get(), 0));
-//            if (!mc.world.isSpaceEmpty(box)) return;
-//
-        //mc.getNetworkHandler().sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX()+2, mc.player.getY(), mc.player.getZ(), false));
-        //;
     }
 
     protected void resetLastPlayer() {
@@ -240,7 +226,7 @@ public class ArchiveModule extends Module {
     /**
      * Moves the player in the provided direction.
      */
-    private void movePlayerDirection(Direction direction) {
+    public void movePlayerDirection(Direction direction) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
         // Ensure the player is facing the right direction.
@@ -291,7 +277,7 @@ public class ArchiveModule extends Module {
     /**
      * Determines the direction the player should be rotated after completing the segment of the supplied direction.
      */
-    private Direction getDirectionToTurnFromCurrentDirection(Direction direction) {
+    public Direction getDirectionToTurnFromCurrentDirection(Direction direction) {
         return switch (direction) {
             case NORTH -> Direction.EAST;
             case EAST -> Direction.SOUTH;
